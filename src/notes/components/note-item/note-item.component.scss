@@ -1,0 +1,16 @@
+@import '../../../variables';
+
+.note {
+  border-bottom: 1px solid $col-gray-light;
+  padding: $space-medium;
+  max-width: $notes-width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: black;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}

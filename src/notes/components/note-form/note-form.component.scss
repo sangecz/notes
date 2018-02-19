@@ -1,0 +1,35 @@
+@import '../../../variables';
+
+.note-form {
+  border: 1px solid #d6d6d6;
+  padding: $space-medium;
+  font-size: $fs-medium;
+
+  .input {
+    width: calc(#{$notes-width} - 3*#{$space-medium});
+    border: 1px solid #d6d6d6;
+    font-size: $fs-medium;
+    padding: $space-small;
+  }
+
+  .btns {
+    margin-top: $space-medium;
+    display: flex;
+    flex-direction: row;
+
+    .btn {
+      background-color: $col-gray-light;
+      width: 50%;
+      height: $btn-height;
+      font-size: $fs-medium;
+    }
+
+    .warn {
+      background-color: $col-gray-dark;
+    }
+
+    .create {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "notes.title": "Notes",
+  "notes.detail": "Notes detail",
+  "notes.add": "Add new Note",
+  "notes.remove": "Delete",
+  "notes.remove.confirm": "Are you sure?",
+  "notes.create": "Create",
+  "notes.update": "Save",
+  "notes.error": "Note must have a title"
+}

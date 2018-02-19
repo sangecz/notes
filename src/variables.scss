@@ -1,0 +1,22 @@
+
+$space-small: 8px;
+$space-medium: 16px;
+$space-large: 32px;
+
+$col-gray-light: #e0e0e0;
+$col-gray-dark: #bebebe;
+
+$notes-width: 250px;
+
+$fs-medium: 16px;
+$fs-large: 24px;
+
+$btn-height: 36px;
+
+@mixin centerer {
+  width: $notes-width;
+  position: absolute;
+  top: $btn-height;
+  left: 50%;
+  transform: translate(-50%, $btn-height);
+}

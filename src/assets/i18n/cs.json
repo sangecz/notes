@@ -1,0 +1,10 @@
+{
+  "notes.title": "Poznámky",
+  "notes.detail": "Detail poznámky",
+  "notes.add": "Přidat novou poznámku",
+  "notes.remove": "Smazat",
+  "notes.remove.confirm": "Jste si jistí?",
+  "notes.create": "Vytvořit",
+  "notes.update": "Uložit",
+  "notes.error": "Poznámka musí mít název"
+}

@@ -1,18 +1,57 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+import { AppComponent } from './containers/app.component';
+import { environment } from '../environments/environment';
+import { CustomSerializer, effects, reducers } from './store';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
-import { AppComponent } from './app.component';
+// not used in production
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
+// routes
+export const ROUTES: Routes = [
+  {path: '', pathMatch: 'full', redirectTo: 'notes'},
+  {
+    path: 'notes',
+    loadChildren: '../notes/notes.module#NotesModule',
+  },
+];
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    RouterModule.forRoot(ROUTES),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot(effects),
+    StoreRouterConnectingModule,
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [{provide: RouterStateSerializer, useClass: CustomSerializer}],
+  declarations: [AppComponent, NavbarComponent],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+}

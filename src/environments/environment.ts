@@ -4,5 +4,6 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiURL: 'https://private-anon-4e9e0f5ea8-note10.apiary-mock.com',
 };
