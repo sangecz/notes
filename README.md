@@ -1,4 +1,10 @@
-# Notes
+# Notes Project
+
+Simple CRUD app for managing notes. 
+Implementation uses `@ngrx/store` (redux) for state management (state, side effects, router chaneges). 
+Notes store is covered by unit tests (actions, reducers, effects). 
+Effects are tested with `jasmine marbles`. 
+Notes are powered by Observables and ready to be used with Firebase (seamless live updates).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.4.
 
@@ -12,9 +18,9 @@ npm install -g @angular/cli
 npm install
 ```
 
-## Development server
+## Run development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:9000/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to **`http://localhost:9000/`**. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 

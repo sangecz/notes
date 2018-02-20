@@ -6,9 +6,12 @@ import * as fromNotes from '../reducers/notes.reducer';
 
 import { Note } from '../../models/note.model';
 
-export const getNoteState = createSelector(
+export const getNoteSelector = createSelector(
   fromFeature.getNotesState,
-  (state: fromFeature.NotesState) => state.notes
+  (state: fromFeature.NotesState) => {
+    console.log(111, state);
+    return state.notes;
+  }
 );
 
 export const {
@@ -16,7 +19,7 @@ export const {
   selectEntities: getNoteEntities,
   selectAll: getNotes,
   selectTotal: getTotalNotes,
-} = fromNotes.adapter.getSelectors(getNoteState);
+} = fromNotes.adapter.getSelectors(getNoteSelector);
 
 export const getSelectedNote = createSelector(
   getNoteEntities,
@@ -27,10 +30,10 @@ export const getSelectedNote = createSelector(
 );
 
 export const getNotesLoaded = createSelector(
-  getNoteState,
+  getNoteSelector,
   fromNotes.getNotesLoaded
 );
 export const getNotesLoading = createSelector(
-  getNoteState,
+  getNoteSelector,
   fromNotes.getNotesLoading
 );

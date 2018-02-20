@@ -42,9 +42,9 @@ describe('Notes Actions', () => {
   describe('CreateNote Actions', () => {
     describe('CreateNote', () => {
       it('should create an action', () => {
-        const payload: Partial<Note> = {
+        const payload: Note = {
           title: 'Note #2',
-        };
+        } as Note;
         const action = new fromNotes.CreateNote(payload);
 
         expect({ ...action }).toEqual({

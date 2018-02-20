@@ -1,5 +1,6 @@
 import * as fromNotes from './notes.reducer';
 import * as fromActions from '../actions/notes.action';
+import * as fromSelectors from '../selectors/notes.selectors';
 import * as fromMock from '../notes.mock';
 import { Note } from '../../models/note.model';
 
@@ -32,6 +33,7 @@ describe('NotesReducer', () => {
       const entities = {
         1: notes[0],
         2: notes[1],
+        3: notes[2],
       };
       const {initialState} = fromNotes;
       const action = new fromActions.LoadNotesSuccess(notes);
