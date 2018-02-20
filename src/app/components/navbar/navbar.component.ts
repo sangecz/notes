@@ -7,8 +7,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['navbar.component.scss'],
   template: `
     <a [routerLink]="['/notes']">{{'notes.title' | translate}}</a>
+    <app-lang-select></app-lang-select>
   `
 })
 export class NavbarComponent {
-
 }

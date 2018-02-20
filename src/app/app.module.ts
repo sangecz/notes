@@ -8,6 +8,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './containers/app.component';
 import { environment } from '../environments/environment';
@@ -16,6 +17,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 // not used in production
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { LangSelectComponent } from './components/lang-select/lang-select.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -37,6 +39,7 @@ export const ROUTES: Routes = [
     BrowserAnimationsModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES),
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -50,7 +53,7 @@ export const ROUTES: Routes = [
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [{provide: RouterStateSerializer, useClass: CustomSerializer}],
-  declarations: [AppComponent, NavbarComponent],
+  declarations: [AppComponent, NavbarComponent, LangSelectComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {
