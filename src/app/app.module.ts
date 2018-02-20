@@ -31,6 +31,7 @@ export const ROUTES: Routes = [
     path: 'notes',
     loadChildren: '../notes/notes.module#NotesModule',
   },
+  {path: '**', redirectTo: 'notes'},
 ];
 
 @NgModule({

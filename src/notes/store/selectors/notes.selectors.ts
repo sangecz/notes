@@ -8,10 +8,7 @@ import { Note } from '../../models/note.model';
 
 export const getNoteSelector = createSelector(
   fromFeature.getNotesState,
-  (state: fromFeature.NotesState) => {
-    console.log(111, state);
-    return state.notes;
-  }
+  (state: fromFeature.NotesState) => state.notes
 );
 
 export const {
